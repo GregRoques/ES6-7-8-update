@@ -60,7 +60,7 @@ someRecursive([4,6,8], isOdd)
 
 // =====================================================================================================================
 
-var newArray = [];
+let newArray = [];
 const flatten = (arr) => {
     if (arr.length === 0) return newArray;
         let num = arr.shift();
@@ -75,6 +75,30 @@ const flatten = (arr) => {
 flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]])
 
 console.log(newArray)
-    
 
+// =====================================================================================================================
 
+let capArray = []
+const capitalizeFirst = (lowerCaseString) => {
+    if(lowerCaseString.length === 0) return capArray;
+    let word = lowerCaseString.shift()
+    capArray.push(word.replace(/^./, word[0].toUpperCase())); 
+    capitalizeFirst(lowerCaseString)
+}
+capitalizeFirst(['car','taco','banana'])
+console.log(capArray)
+
+// =====================================================================================================================
+
+let capWords = []
+const capitalizeWords = (capArray) => {
+    if (capArray.length === 0) return capWords;
+    let currWord = capArray.shift();
+    capWords.push(currWord.toUpperCase())
+    capitalizeWords(capArray)
+}
+let theseWords = ['i', 'am', 'learning', 'recursion'];
+capitalizeWords(theseWords); // ['I', 'AM', 'LEARNING', 'RECURSION']
+console.log(capWords)
+
+// =====================================================================================================================
